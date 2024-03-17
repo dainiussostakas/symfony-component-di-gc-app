@@ -1,0 +1,14 @@
+{
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/dainiussostakas/symfony-component-generator.git"
+    }
+  ],
+  "require": {
+    "symfony/dependency-injection": "^7.0",
+    "symfony/config": "^7.0",
+    "symfony/yaml": "^7.0",
+    "ds/data": "^0.0.3"
+  }
+}

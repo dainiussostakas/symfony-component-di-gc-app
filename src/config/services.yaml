@@ -1,0 +1,61 @@
+parameters:
+  string_generator_collection_count: 10
+  string_generator_length: 20
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  byte_to_char_converter:
+    class: DS\Data\Converters\ByteToCharConverter
+
+  random_converter:
+    class: DS\Data\Converters\RandomConverter
+    arguments:
+      $converters:
+        - '@byte_to_char_converter'
+
+  string_generator:
+    class: DS\Data\Generators\StringGenerator
+    arguments:
+      $length: '%string_generator_length%'
+      $converters:
+        - '@random_converter'
+
+  array_range:
+    class: DS\Data\Ranges\ArrayRange
+    arguments:
+      $items:
+        - '@string_generator'
+
+  any_generator:
+    class: DS\Data\Generators\AnyGenerator
+    arguments:
+      $ranges:
+        - '@array_range'
+
+  default_string_rot13_converter:
+    class: DS\Data\Converters\StringRot13Converter
+
+  default_alpha_to_number_converter:
+    class: DS\Data\Converters\AlphaToNumberConverter
+
+  string_collection_generator:
+    class: DS\Data\Generators\AnyCollectionGenerator
+    arguments:
+      $valueGenerator: '@any_generator'
+      $count: '%string_generator_collection_count%'
+
+  any_generator_of_converters_ranges:
+    class: DS\Data\Ranges\ArrayRange
+    arguments:
+      $items:
+        - '@default_string_rot13_converter'
+        - '@default_alpha_to_number_converter'
+
+  any_generator_of_converters:
+    class: DS\Data\Generators\AnyGenerator
+    arguments:
+      $ranges:
+        - '@any_generator_of_converters_ranges'
