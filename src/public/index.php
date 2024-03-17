@@ -28,13 +28,14 @@ try {
     /**
      * @var AnyGenerator<int, IConverter> $anyGenerator
      */
-    $anyGenerator = $container->get('any_generator_of_converters');
+    $anyGenerator = $container->get('random_converters');
 
     foreach ($stringCollectionGenerator->getGenerator() as $value) {
-        $oldValue = $newValue = $value->getValue();
-        $anyGenerator->getValue()->apply($newValue);
+        $oldValue = $newValue = $value;
+        $converter = $anyGenerator->getValue();
+        $converter->apply($newValue);
 
-        echo $oldValue . ': ' . $newValue . '<br/>';
+        echo sprintf('<b>(%s)</b><br/>Original: %s<br/>Converterd: %s<br/><br/', $converter::class, $oldValue, $newValue);
     }
 } catch (Exception $e) {
     throw $e;
