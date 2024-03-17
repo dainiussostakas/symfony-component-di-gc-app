@@ -26,16 +26,21 @@ try {
     $stringCollectionGenerator = $container->get('string_collection_generator');
 
     /**
-     * @var AnyGenerator<int, IConverter> $anyGenerator
+     * @var AnyGenerator<int, IConverter> $randomConverterGenerator
      */
-    $anyGenerator = $container->get('random_converters');
+    $randomConverterGenerator = $container->get('random_converters_generator');
 
     foreach ($stringCollectionGenerator->getGenerator() as $value) {
         $oldValue = $newValue = $value;
-        $converter = $anyGenerator->getValue();
+        $converter = $randomConverterGenerator->getValue();
         $converter->apply($newValue);
 
-        echo sprintf('<b>(%s)</b><br/>Original: %s<br/>Converted: %s<br/><br/>', $converter::class, $oldValue, $newValue);
+        echo sprintf(
+            '<b>(%s)</b><br/>Original: %s<br/>Converted: %s<br/><br/>',
+            $converter::class,
+            $oldValue,
+            $newValue
+        );
     }
 } catch (Exception $e) {
     throw $e;

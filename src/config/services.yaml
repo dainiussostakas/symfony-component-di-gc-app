@@ -24,15 +24,15 @@ services:
       $valueGenerator: '@string_generator'
       $count: '%string_generator_collection_count%'
 
-  random_converters_ranges:
+  random_converters_generator_ranges:
     class: DS\Data\Ranges\ArrayRange
     arguments:
       $items:
         - '@default_string_rot13_converter'
         - '@default_alpha_to_number_converter'
 
-  random_converters:
+  random_converters_generator:
     class: DS\Data\Generators\AnyGenerator
     arguments:
       $ranges:
-        - '@random_converters_ranges'
+        - '@random_converters_generator_ranges'
