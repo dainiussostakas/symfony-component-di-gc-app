@@ -35,7 +35,7 @@ try {
         $converter = $anyGenerator->getValue();
         $converter->apply($newValue);
 
-        echo sprintf('<b>(%s)</b><br/>Original: %s<br/>Converterd: %s<br/><br/', $converter::class, $oldValue, $newValue);
+        echo sprintf('<b>(%s)</b><br/>Original: %s<br/>Converted: %s<br/><br/>', $converter::class, $oldValue, $newValue);
     }
 } catch (Exception $e) {
     throw $e;
