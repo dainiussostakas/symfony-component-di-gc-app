@@ -46,4 +46,4 @@ jobs:
       - name: Composer dependencies install
         run: docker exec ds-app-php /bin/sh -c 'cd app && composer install'
       - name: Executing tests
-        run: docker exec ds-app-php sh execute-tests.sh
+        run: docker exec ds-app-php /bin/sh -c 'cd app && execute-tests.sh'
