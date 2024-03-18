@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "ds/data",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dainiussostakas/symfony-component-ds-data.git",
-                "reference": "06e88ee0f8dfe4fe97a26efa068b5383943fe8fb"
+                "reference": "1bff7c03c0bc00d1ed180e656df0b7ea2217beeb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dainiussostakas/symfony-component-ds-data/zipball/06e88ee0f8dfe4fe97a26efa068b5383943fe8fb",
-                "reference": "06e88ee0f8dfe4fe97a26efa068b5383943fe8fb",
+                "url": "https://api.github.com/repos/dainiussostakas/symfony-component-ds-data/zipball/1bff7c03c0bc00d1ed180e656df0b7ea2217beeb",
+                "reference": "1bff7c03c0bc00d1ed180e656df0b7ea2217beeb",
                 "shasum": ""
             },
             "require": {
@@ -47,10 +47,10 @@
             },
             "description": "Data generators and converters",
             "support": {
-                "source": "https://github.com/dainiussostakas/symfony-component-ds-data/tree/0.0.4",
+                "source": "https://github.com/dainiussostakas/symfony-component-ds-data/tree/0.0.5",
                 "issues": "https://github.com/dainiussostakas/symfony-component-ds-data/issues"
             },
-            "time": "2024-03-18T09:57:59+00:00"
+            "time": "2024-03-18T20:18:55+00:00"
         },
         {
             "name": "psr/container",
@@ -1015,16 +1015,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.62",
+            "version": "1.10.63",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "cd5c8a1660ed3540b211407c77abf4af193a6af9"
+                "reference": "ad12836d9ca227301f5fb9960979574ed8628339"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/cd5c8a1660ed3540b211407c77abf4af193a6af9",
-                "reference": "cd5c8a1660ed3540b211407c77abf4af193a6af9",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/ad12836d9ca227301f5fb9960979574ed8628339",
+                "reference": "ad12836d9ca227301f5fb9960979574ed8628339",
                 "shasum": ""
             },
             "require": {
@@ -1073,7 +1073,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-13T12:27:20+00:00"
+            "time": "2024-03-18T16:53:53+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
