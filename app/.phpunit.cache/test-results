@@ -1,1 +1,0 @@
-{"version":1,"defects":{"DS\\App\\Tests\\TokenProviderTest::testGetToken":8,"DS\\App\\Tests\\StringCollectionGeneratorServiceTest::testGetToken":8,"DS\\App\\Tests\\StringCollectionGeneratorServiceTest::testGeneration":8},"times":{"DS\\App\\Tests\\StringCollectionGeneratorServiceTest::testGeneration":0.017}}
