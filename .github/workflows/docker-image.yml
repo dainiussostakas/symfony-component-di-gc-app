@@ -42,11 +42,8 @@ jobs:
         run: |
           docker load --input /tmp/ds-app-php-image.tar
           docker image ls -a
-          docker run -d --name ds-app-php -it ds-app-php-image 
-          docker container ls -a
-      - name: Change directory to app
-        run: docker exec ds-app-php /bin/sh -c 'cd app'
+          docker run -d --name ds-app-php -it ds-app-php-image
       - name: Composer dependencies install
-        run: docker exec ds-app-php /bin/sh -c 'composer install'
+        run: docker exec ds-app-php /bin/sh -c 'cd app && composer install'
       - name: Executing tests
         run: docker exec ds-app-php sh execute-tests.sh
