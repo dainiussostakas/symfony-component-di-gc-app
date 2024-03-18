@@ -18,7 +18,7 @@ RUN apk add autoconf g++ make && \
     docker-php-ext-enable xdebug && \
     apk del --purge autoconf g++ make
 
-RUN docker-php-ext-install mbstring
+RUN docker-php-ext-enable mbstring
 
 # Copy the php config file
 COPY ./docker/php/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
