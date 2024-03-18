@@ -1,4 +1,4 @@
-FROM php:8.2-fpm-alpine3.19
+FROM php:8.2-fpm-alpine3.19 AS builder
 
 RUN apk update
 
@@ -7,8 +7,11 @@ RUN php -r "if (hash_file('sha256', 'composer.phar') === '1ffd0be3f27e237b1ae47f
 RUN mv composer.phar /usr/local/bin/composer
 RUN chmod +x /usr/local/bin/composer
 
-RUN docker-php-ext-install pdo pdo_mysql
-RUN docker-php-ext-install opcache
+# Copy the php config file
+COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
+
+FROM builder AS development
+
 RUN apk add autoconf g++ make && \
     apk add linux-headers && \
     pecl install -f xdebug && \
@@ -23,8 +26,18 @@ COPY ./docker/php/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/docker-php
 RUN chmod 0655 /usr/local/etc/php/conf.d/*
 RUN chmod -x /usr/local/etc/php/conf.d/*
 
+VOLUME ["/app"]
+WORKDIR /app
+
+FROM builder AS stage
+
+VOLUME ["/app"]
+WORKDIR /app
+
+FROM builder AS production
+
 # Copy the application code
-#COPY . /app
+COPY . /app
 
 VOLUME ["/app"]
 WORKDIR /app

@@ -1,0 +1,31 @@
+{
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/dainiussostakas/symfony-component-generator.git"
+    }
+  ],
+  "version": "0.0.1",
+  "autoload": {
+    "classmap": [
+      "src"
+    ],
+    "psr-4": {
+      "DS\\App\\": ["src"],
+      "DS\\App\\Tests\\": ["tests"]
+    },
+    "exclude-from-classmap": ["tests"]
+  },
+  "require": {
+    "php": ">=8.2",
+    "symfony/dependency-injection": "^7.0",
+    "symfony/config": "^7.0",
+    "symfony/yaml": "^7.0",
+    "ds/data": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^11",
+    "phpstan/phpstan": "^1.10",
+    "squizlabs/php_codesniffer": "3.7.2"
+  }
+}

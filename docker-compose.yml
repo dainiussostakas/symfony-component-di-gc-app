@@ -3,23 +3,23 @@ version: '3'
 services:
 
   nginx:
-    container_name: symfony-component-di-gc-nginx
+    container_name: ds-app-nginx
     build:
       context: .
       dockerfile: docker/nginx/Dockerfile
     ports:
       - '18080:80'
     volumes:
-      - ./src:/app/
+      - ./app:/app/
     links:
       - php
 
   php:
-    container_name: symfony-component-di-gc-php
+    container_name: ds-app-php
     build:
       context: .
       dockerfile: docker/php/Dockerfile
     environment:
       PHP_IDE_CONFIG: serverName=localhost
     volumes:
-      - ./src:/app/
+      - ./app:/app/

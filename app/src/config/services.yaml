@@ -36,3 +36,9 @@ services:
     arguments:
       $ranges:
         - '@random_converters_generator_ranges'
+
+  string_collection_generator_service:
+    class: DS\App\Service\StringCollectionGeneratorService
+    arguments:
+      $stringCollectionGenerator: '@string_collection_generator'
+      $randomConverterGenerator: '@random_converters_generator'
