@@ -12,11 +12,11 @@ try {
     $container = ContainerBuilderFactory::create();
 
     /**
-     * @var \DS\App\Service\StringCollectionGeneratorService $stringCollectionGeneratorFactory
+     * @var \DS\App\Service\StringCollectionGeneratorService $stringCollectionGeneratorService
      */
-    $stringCollectionGeneratorFactory = $container->get('string_collection_generator_service');
+    $stringCollectionGeneratorService = $container->get('string_collection_generator_service');
 
-    $generator = $stringCollectionGeneratorFactory->generate();
+    $generator = $stringCollectionGeneratorService->generate();
 
     while ($generator->valid()) {
         /**

@@ -8,10 +8,14 @@ use DS\App\Service\StringCollectionGeneratorService;
 use DS\Data\Converters\AlphaToNumberConverter;
 use DS\Data\Converters\IConverter;
 use DS\Data\Converters\StringRot13Converter;
+use Exception;
 use PHPUnit\Framework\TestCase;
 
 class StringCollectionGeneratorServiceTest extends TestCase
 {
+    /**
+     * @throws Exception
+     */
     public function testGeneration()
     {
         $containerBuilder = ContainerBuilderFactory::create();
@@ -42,7 +46,7 @@ class StringCollectionGeneratorServiceTest extends TestCase
                 $this->assertMatchesRegularExpression("/^.+(\/.+)*$/u", $item->getConvertedValue());
             } elseif ($converter instanceof StringRot13Converter) {
                 $this->assertMatchesRegularExpression(
-                    "/^[0-9A-Za-zŽž]{{$stringLength}}$/u",
+                    "/^[0-9A-Za-z]{{$stringLength}}$/u",
                     $item->getConvertedValue()
                 );
             }
